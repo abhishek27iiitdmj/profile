@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abhishek Kumar | DevOps & Platform Engineering Lead</title>
+<meta name="description" content="DevOps and Platform Engineering Lead. AWS, Kubernetes, SRE, Agentic AI.">
+<style>
+:root{--bg:#050816;--bg2:#0a1030;--glass:rgba(255,255,255,.04);--line:rgba(255,255,255,.1);--text:#e8ecff;--muted:#97a3d6;--a:#22d3ee;--b:#8b5cf6;--c:#f472b6;--g:linear-gradient(120deg,var(--a),var(--b) 55%,var(--c))}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+#bg{position:fixed;inset:0;z-index:-2;width:100%;height:100%}
+.aurora{position:fixed;inset:0;z-index:-3;background:
+ radial-gradient(60vw 40vw at 10% 0%,rgba(139,92,246,.25),transparent 60%),
+ radial-gradient(50vw 40vw at 100% 30%,rgba(34,211,238,.18),transparent 60%),
+ radial-gradient(50vw 40vw at 30% 100%,rgba(244,114,182,.15),transparent 60%)}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:-1;background:radial-gradient(circle,rgba(34,211,238,.14),transparent 65%);transform:translate(-50%,-50%);left:50%;top:50%}
+.grad{background:var(--g);background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 8s ease infinite}
+@keyframes shift{50%{background-position:100% 50%}}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--g);z-index:50;box-shadow:0 0 12px var(--a)}
+nav{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:6px;padding:8px 10px;border-radius:999px;background:rgba(10,16,48,.6);border:1px solid var(--line);backdrop-filter:blur(14px)}
+nav .logo{font-weight:800;padding:6px 14px}
+nav a.l{font-size:.85rem;color:var(--muted);padding:6px 12px;border-radius:999px;transition:.2s}
+nav a.l:hover,nav a.l.active{color:#fff;background:rgba(255,255,255,.1)}
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:40}
+.dots a{width:9px;height:9px;border-radius:50%;background:var(--line);transition:.3s;position:relative}
+.dots a.active{background:var(--a);box-shadow:0 0 12px var(--a);transform:scale(1.4)}
+section{position:relative;padding:110px 6vw;max-width:1240px;margin:auto}
+.eyebrow{color:var(--a);letter-spacing:.2em;text-transform:uppercase;font-size:.75rem;font-weight:700}
+h2{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;margin:8px 0 14px}
+.lead{color:var(--muted);max-width:640px;margin-bottom:44px}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:20px;backdrop-filter:blur(10px)}
+.tilt{--rx:0deg;--ry:0deg;--mx:50%;--my:50%;position:relative;transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .15s ease-out,border-color .3s;overflow:hidden;padding:26px}
+.tilt::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(34,211,238,.18),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.tilt:hover{border-color:rgba(34,211,238,.5)}
+.tilt:hover::before{opacity:1}
+.tilt h3{margin-bottom:8px}
+.tilt p{color:var(--muted);font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.tag{display:inline-block;font-size:.72rem;padding:3px 11px;border-radius:999px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);color:var(--a);margin:12px 6px 0 0}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s}
+.reveal.show{opacity:1;transform:none}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:700;border:1px solid var(--line);transition:.25s}
+.btn.p{background:var(--g);color:#050816;border:0;box-shadow:0 8px 30px rgba(139,92,246,.4)}
+.btn:hover{transform:translateY(-3px)}
+
+/* hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding-top:120px}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1.05;margin:14px 0 18px}
+.role{font-size:1.3rem;min-height:2em;color:var(--a);font-family:ui-monospace,Menlo,monospace}
+.role::after{content:"▍";animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.d{color:var(--muted);max-width:520px;margin:6px 0 28px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.orbit{position:relative;width:min(440px,80vw);aspect-ratio:1;margin:auto}
+.core{position:absolute;inset:33%;border-radius:50%;background:var(--g);display:grid;place-items:center;text-align:center;font-weight:800;box-shadow:0 0 80px rgba(139,92,246,.7),inset 0 0 30px rgba(255,255,255,.3);animation:pulse 4s ease-in-out infinite;color:#050816;font-size:clamp(.8rem,2.4vw,1.1rem);line-height:1.2}
+.core small{display:block;font-weight:600;font-size:.6em}
+@keyframes pulse{50%{transform:scale(1.07)}}
+.ring{position:absolute;border-radius:50%;border:1px dashed rgba(255,255,255,.2);animation:spin linear infinite}
+.ring.r1{inset:14%;animation-duration:24s}
+.ring.r2{inset:0;animation-duration:40s;animation-direction:reverse}
+.ring span{position:absolute;left:50%;top:0;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:16px;display:grid;place-items:center;font-size:.7rem;font-weight:700;background:rgba(10,16,48,.9);border:1px solid var(--line);box-shadow:0 0 20px rgba(34,211,238,.3);animation:spin linear infinite reverse}
+.ring.r1 span{animation-duration:24s}.ring.r2 span{animation-duration:40s;animation-direction:normal}
+@keyframes spin{to{transform:rotate(360deg)}}
+.stats{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.stat{padding:22px;text-align:center}
+.stat b{font-size:2.3rem;display:block;line-height:1.2}
+.stat span{color:var(--muted);font-size:.85rem}
+.scroll{position:absolute;bottom:22px;left:50%;width:22px;height:36px;border:2px solid var(--muted);border-radius:12px;opacity:.6}
+.scroll::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;border-radius:2px;background:var(--a);animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(12px);opacity:0}}
+
+/* marquee */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:16px 0;background:rgba(255,255,255,.02);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.marquee div{display:flex;gap:46px;width:max-content;animation:mq 40s linear infinite;font-weight:700;color:var(--muted);letter-spacing:.08em}
+.marquee span::before{content:"✦ ";color:var(--b)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* architecture */
+.arch{padding:18px}
+.arch svg{width:100%;height:auto;display:block}
+.node rect{fill:rgba(10,16,48,.95);stroke:rgba(255,255,255,.2);stroke-width:1.4;transition:.3s}
+.node:hover rect{stroke:var(--a);filter:drop-shadow(0 0 10px var(--a))}
+.node text{fill:#e8ecff;font-size:13px;font-weight:700;text-anchor:middle;pointer-events:none}
+.node text.s{font-size:10px;fill:#97a3d6;font-weight:500}
+.flow{fill:none;stroke:rgba(34,211,238,.55);stroke-width:2;stroke-dasharray:6 6;animation:dash 1s linear infinite}
+.flow.rep{stroke:rgba(244,114,182,.7)}
+@keyframes dash{to{stroke-dashoffset:-12}}
+.region{fill:rgba(139,92,246,.06);stroke:rgba(139,92,246,.5);stroke-dasharray:4 6}
+.rlabel{fill:#a78bfa;font-size:11px;font-weight:700;letter-spacing:.15em}
+.svc{fill:var(--a);animation:blinkdot 2.4s ease-in-out infinite}
+@keyframes blinkdot{50%{opacity:.25}}
+.legend{display:flex;gap:22px;flex-wrap:wrap;color:var(--muted);font-size:.85rem;margin-top:14px}
+.legend i{display:inline-block;width:26px;height:0;border-top:2px dashed var(--a);vertical-align:middle;margin-right:8px}
+.legend i.p{border-color:var(--c)}
+
+/* timeline */
+.tl{position:relative;padding-left:46px}
+.tl::before{content:"";position:absolute;left:14px;top:0;bottom:0;width:2px;background:var(--line)}
+.tl .fill{position:absolute;left:14px;top:0;width:2px;height:0;background:var(--g);box-shadow:0 0 14px var(--a)}
+.tl .pin{position:absolute;left:5px;top:6px;width:20px;height:20px;border-radius:50%;background:var(--bg);border:3px solid var(--a);box-shadow:0 0 18px var(--a)}
+.job{padding:30px}
+.job h3{font-size:1.5rem}
+.meta{color:var(--a);font-weight:600;margin:4px 0 18px}
+.resp{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.resp div{padding:12px 14px 12px 40px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-size:.92rem;color:var(--muted);position:relative}
+.resp div::before{content:"▸";position:absolute;left:15px;color:var(--a)}
+
+/* impact */
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
+.gauge{text-align:center;padding:26px}
+.gauge svg{width:140px;height:140px;transform:rotate(-90deg)}
+.gauge circle{fill:none;stroke-width:10;stroke-linecap:round}
+.gauge .bgc{stroke:rgba(255,255,255,.08)}
+.gauge .fg{stroke:url(#gg);stroke-dasharray:339.3;stroke-dashoffset:339.3;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1)}
+.show .gauge .fg,.gauge.show .fg{stroke-dashoffset:var(--off)}
+.gauge .v{position:relative;margin-top:-92px;height:92px;font-size:1.8rem;font-weight:800;display:grid;place-items:center}
+.gauge p{margin-top:14px;color:var(--muted);font-size:.9rem}
+.bars{margin-top:22px;padding:28px;display:grid;gap:18px}
+.bar label{display:flex;justify-content:space-between;font-size:.9rem;color:var(--muted);margin-bottom:6px}
+.track{height:18px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:99px;transition:width 1.8s cubic-bezier(.2,.8,.2,1)}
+.bars.show .track i{width:var(--w)}
+.note{font-size:.75rem;color:var(--muted);opacity:.7}
+
+/* projects */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{background:var(--glass);border:1px solid var(--line);color:var(--muted);padding:8px 18px;border-radius:999px;cursor:pointer;font-weight:600;transition:.2s}
+.filters button.on,.filters button:hover{color:#050816;background:var(--g);border-color:transparent}
+.pcard{transition:transform .15s ease-out,opacity .4s}
+.pcard.hide{display:none}
+.pcard .ico{font-size:2rem;margin-bottom:10px}
+.demo{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.pipe{padding:26px}
+.steps{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.step{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);color:var(--muted);transition:.4s;font-size:.9rem}
+.step b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08);font-size:.8rem}
+.step.on{border-color:var(--a);color:#fff;background:rgba(34,211,238,.08);box-shadow:0 0 22px rgba(34,211,238,.2)}
+.step.on b{background:var(--a);color:#050816}
+.step.done b{background:var(--b);color:#fff}
+.ttl{height:6px;border-radius:9px;background:rgba(255,255,255,.08);margin-top:16px;overflow:hidden}
+.ttl i{display:block;height:100%;width:0;background:var(--g)}
+.term{padding:0;font-family:ui-monospace,Menlo,monospace;font-size:.85rem;overflow:hidden}
+.term .bar2{display:flex;gap:7px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.term .bar2 i{width:11px;height:11px;border-radius:50%;background:#ff5f56}
+.term .bar2 i:nth-child(2){background:#ffbd2e}.term .bar2 i:nth-child(3){background:#27c93f}
+.term pre{padding:18px;white-space:pre-wrap;min-height:250px;color:#b9c4f5}
+.term .c{color:var(--a)}.term .o{color:#86efac}
+
+
+.hint{margin-top:14px;font-size:.78rem;font-weight:700;color:var(--a);opacity:.6;transition:.25s}
+.pcard{cursor:pointer}
+.pcard:hover .hint,.pcard:focus-visible .hint{opacity:1;transform:translateX(4px)}
+.pcard.sel{border-color:var(--b);box-shadow:0 0 0 1px var(--b),0 0 30px rgba(139,92,246,.25)}
+.studio-h{margin-top:56px;font-size:1.5rem}
+.tabs{margin-bottom:18px}
+.term .bar2{align-items:center}
+.term .bar2 .tt{margin-left:10px;font-size:.75rem;color:var(--muted)}
+.term .m{color:#fbbf24}
+.term .d{color:#6b7599}
+.steps .step{animation:none}
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(3,5,16,.75);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .3s}
+.modal.open{opacity:1;pointer-events:auto}
+.mbox{width:min(860px,100%);max-height:90vh;overflow:auto;padding:28px;background:rgba(10,16,48,.95);transform:translateY(24px) scale(.97);transition:transform .35s cubic-bezier(.2,.8,.2,1);position:relative}
+.modal.open .mbox{transform:none}
+.mclose{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--text);cursor:pointer}
+.mclose:hover{border-color:var(--a)}
+.mhead{display:flex;gap:16px;align-items:center;margin-bottom:18px;padding-right:40px}
+.mhead #mico{font-size:2.4rem}
+.mhead p{color:var(--muted);font-size:.92rem}
+.mterm{border:1px solid var(--line);border-radius:14px;background:#050816}
+.mterm pre{min-height:300px;max-height:340px;overflow:auto;font-size:.8rem}
+#replay{margin-left:auto;background:none;border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:3px 12px;cursor:pointer;font-size:.75rem}
+#replay:hover{color:var(--a);border-color:var(--a)}
+.mcols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:20px}
+.mcols h4{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
+.mcols ul{padding-left:18px;color:var(--muted);font-size:.92rem}
+@media(max-width:700px){.mcols{grid-template-columns:1fr}}
+
+/* skills */
+.skillwrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
+#sphere{width:100%;aspect-ratio:1;cursor:grab;touch-action:none}
+.cats{display:grid;gap:14px}
+.cat{padding:18px 22px}
+.cat h4{font-size:.95rem;margin-bottom:8px}
+.chips span{display:inline-block;margin:4px 4px 0 0;padding:4px 12px;font-size:.8rem;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);transition:.2s}
+.chips span:hover{border-color:var(--a);color:var(--a);transform:translateY(-2px)}
+
+/* edu / roles */
+.edu{display:flex;gap:22px;align-items:center;padding:30px}
+.edu .cap{font-size:3rem}
+.roles{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.roles span{padding:14px 24px;border-radius:16px;font-weight:700;background:var(--glass);border:1px solid var(--line);transition:.3s}
+.roles span:hover{background:var(--g);color:#050816;transform:translateY(-4px) rotate(-1deg)}
+footer{text-align:center;padding:50px;color:var(--muted);border-top:1px solid var(--line)}
+
+@media(max-width:900px){.hero,.demo,.skillwrap{grid-template-columns:1fr}nav a.l{display:none}.dots{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<canvas id="bg"></canvas>
+<div id="glow"></div>
+<div id="progress"></div>
+
+<nav>
+  <a class="logo grad" href="#top">AK</a>
+  <a class="l" href="#about">About</a>
+  <a class="l" href="#architecture">Architecture</a>
+  <a class="l" href="#experience">Experience</a>
+  <a class="l" href="#impact">Impact</a>
+  <a class="l" href="#projects">Projects</a>
+  <a class="l" href="#skills">Skills</a>
+  <a class="l" href="#education">Education</a>
+</nav>
+<div class="dots" id="dots"></div>
+
+<section class="hero" id="top">
+  <div>
+    <div class="eyebrow">DevOps · Platform · SRE · Agentic AI</div>
+    <h1>Hi, I'm <span class="grad">Abhishek Kumar</span></h1>
+    <div class="role" id="role"></div>
+    <p class="d">About 8 years of building reliable, secure and cost-efficient cloud platforms on AWS and Kubernetes, now adding AI agents to operations.</p>
+    <div class="btns">
+      <a class="btn p" href="#projects">Explore my work</a>
+      <a class="btn" href="https://abhishek27iiitdmj.github.io/portfolio/" target="_blank" rel="noopener">Portfolio ↗</a>
+    </div>
+  </div>
+  <div class="orbit" aria-hidden="true">
+    <div class="ring r2"><span style="left:50%;top:0">AWS</span><span style="left:100%;top:50%">IaC</span><span style="left:50%;top:100%">CI/CD</span><span style="left:0;top:50%">SRE</span></div>
+    <div class="ring r1"><span style="left:50%;top:0">K8s</span><span style="left:100%;top:50%">AI</span><span style="left:50%;top:100%">TF</span><span style="left:0;top:50%">Sec</span></div>
+    <div class="core"><div>99.9%<small>uptime SLA</small></div></div>
+  </div>
+  <div class="stats">
+    <div class="stat glass"><b class="grad" data-n="8" data-s="+">8+</b><span>Years of experience</span></div>
+    <div class="stat glass"><b class="grad" data-n="60" data-s="+">60+</b><span>Microservices designed</span></div>
+    <div class="stat glass"><b class="grad">1M+</b><span>Daily requests supported</span></div>
+    <div class="stat glass"><b class="grad">99.9%</b><span>Uptime, multi-region</span></div>
+    <div class="stat glass"><b class="grad" data-n="40" data-s="%">40%</b><span>AWS cost reduction</span></div>
+  </div>
+  <div class="scroll"></div>
+</section>
+
+<div class="marquee"><div id="mq"></div></div>
+
+<section id="about" class="reveal">
+  <div class="eyebrow">About</div>
+  <h2>I turn <span class="grad">infrastructure</span> into a product advantage</h2>
+  <p class="lead">Move your mouse over the cards. I lead platform work end to end, from architecture to on-call.</p>
+  <div class="grid">
+    <div class="glass tilt"><h3>☁️ Cloud architecture</h3><p>End-to-end, multi-tier AWS designs with clear microservice boundaries across 60+ services.</p></div>
+    <div class="glass tilt"><h3>🛡️ Reliability &amp; security</h3><p>SLOs and SLIs, incident management, runbooks, post-mortems and SOC 2 Type II support.</p></div>
+    <div class="glass tilt"><h3>🤖 AI-assisted operations</h3><p>Agentic systems built on CrewAI and MCP that cut manual operational effort.</p></div>
+    <div class="glass tilt"><h3>⚙️ Automation</h3><p>Terraform and Ansible for repeatable provisioning, with fewer configuration errors.</p></div>
+  </div>
+</section>
+
+<section id="architecture" class="reveal">
+  <div class="eyebrow">Architecture</div>
+  <h2>A multi-region platform, <span class="grad">in motion</span></h2>
+  <p class="lead">A simplified view of the kind of platform I run: edge protection, load balancing, Kubernetes services in two regions, and replicated data. Hover over a component.</p>
+  <div class="glass arch">
+    <svg viewBox="0 0 960 440" role="img" aria-label="Multi-region AWS architecture diagram">
+      <defs>
+        <path id="p1" d="M110 220 H185"/>
+        <path id="p2" d="M265 220 H330"/>
+        <path id="p3" d="M400 220 C440 220 440 120 490 120"/>
+        <path id="p4" d="M400 220 C440 220 440 320 490 320"/>
+        <path id="p5" d="M700 120 H770"/>
+        <path id="p6" d="M700 320 H770"/>
+        <path id="p7" d="M830 150 V290"/>
+      </defs>
+      <rect class="region" x="470" y="40" width="450" height="170" rx="18"/>
+      <text class="rlabel" x="490" y="62">REGION A</text>
+      <rect class="region" x="470" y="230" width="450" height="170" rx="18"/>
+      <text class="rlabel" x="490" y="252">REGION B</text>
+
+      <use href="#p1" class="flow"/><use href="#p2" class="flow"/><use href="#p3" class="flow"/>
+      <use href="#p4" class="flow"/><use href="#p5" class="flow"/><use href="#p6" class="flow"/>
+      <use href="#p7" class="flow rep"/>
+
+      <g fill="#22d3ee"><circle r="4"><animateMotion dur="1.6s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
+        <circle r="4"><animateMotion dur="1.6s" begin=".5s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
+        <circle r="4"><animateMotion dur="1.8s" begin=".9s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
+        <circle r="4"><animateMotion dur="1.8s" begin="1.1s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
+        <circle r="4"><animateMotion dur="1.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion></circle>
+        <circle r="4"><animateMotion dur="1.2s" begin="1.8s" repeatCount="indefinite"><mpath href="#p6"/></animateMotion></circle></g>
+      <circle r="4" fill="#f472b6"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#p7"/></animateMotion></circle>
+
+      <g class="node"><rect x="20" y="190" width="90" height="60" rx="14"/><text x="65" y="225">Users</text></g>
+      <g class="node"><rect x="185" y="185" width="80" height="70" rx="14"/><text x="225" y="216">Edge</text><text class="s" x="225" y="234">WAF · DNS</text></g>
+      <g class="node"><rect x="330" y="185" width="70" height="70" rx="14"/><text x="365" y="216">ALB</text><text class="s" x="365" y="234">routing</text></g>
+
+      <g class="node"><rect x="490" y="85" width="210" height="70" rx="14"/><text x="595" y="110">EKS Cluster</text>
+        <circle class="svc" cx="535" cy="136" r="5"/><circle class="svc" cx="565" cy="136" r="5" style="animation-delay:.3s"/><circle class="svc" cx="595" cy="136" r="5" style="animation-delay:.6s"/><circle class="svc" cx="625" cy="136" r="5" style="animation-delay:.9s"/><circle class="svc" cx="655" cy="136" r="5" style="animation-delay:1.2s"/></g>
+      <g class="node"><rect x="770" y="90" width="120" height="60" rx="14"/><text x="830" y="118">RDS</text><text class="s" x="830" y="134">primary</text></g>
+
+      <g class="node"><rect x="490" y="285" width="210" height="70" rx="14"/><text x="595" y="310">EKS Cluster</text>
+        <circle class="svc" cx="535" cy="336" r="5" style="animation-delay:.5s"/><circle class="svc" cx="565" cy="336" r="5" style="animation-delay:.8s"/><circle class="svc" cx="595" cy="336" r="5" style="animation-delay:1.1s"/><circle class="svc" cx="625" cy="336" r="5"/><circle class="svc" cx="655" cy="336" r="5" style="animation-delay:.2s"/></g>
+      <g class="node"><rect x="770" y="290" width="120" height="60" rx="14"/><text x="830" y="318">RDS</text><text class="s" x="830" y="334">replica</text></g>
+
+      <g class="node"><rect x="20" y="320" width="300" height="70" rx="14"/><text x="170" y="347">Terraform · Jenkins · CodeBuild</text><text class="s" x="170" y="367">Infrastructure as code and CI/CD</text></g>
+      <g class="node"><rect x="20" y="50" width="300" height="70" rx="14"/><text x="170" y="77">Datadog · CloudWatch · EFK</text><text class="s" x="170" y="97">Observability, SLOs, alerting</text></g>
+    </svg>
+    <div class="legend"><span><i></i>Request traffic</span><span><i class="p"></i>Data replication</span><span>● Pulsing dots are running services</span></div>
+  </div>
+</section>
+
+<section id="experience" class="reveal">
+  <div class="eyebrow">Experience</div>
+  <h2>Where I <span class="grad">lead</span></h2>
+  <p class="lead">Scroll to follow the timeline.</p>
+  <div class="tl" id="tl">
+    <div class="fill" id="tlfill"></div>
+    <span class="pin"></span>
+    <div class="glass job">
+      <h3>DevOps Lead</h3>
+      <div class="meta">Pick My Solar (US rebrand: Electrum) · Dec 2018 – Present</div>
+      <p style="color:var(--muted);margin-bottom:18px">Infrastructure and platform lead for a solar marketplace.</p>
+      <div class="resp">
+        <div>Design end-to-end, multi-tier cloud architecture</div>
+        <div>Define microservice boundaries across 60+ services</div>
+        <div>Support a platform handling 1M+ daily requests</div>
+        <div>Maintain a 99.9% uptime SLA on multi-region AWS</div>
+        <div>Automate infrastructure provisioning and configuration</div>
+        <div>Optimize AWS spend and improve deployment efficiency</div>
+        <div>Build AI-assisted DevOps automation</div>
+        <div>Support infrastructure security and SOC 2 Type II</div>
+        <div>Own SLOs/SLIs, incident management, runbooks, post-mortems</div>
+        <div>Run Kubernetes/EKS, CI/CD, observability and IaC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="impact" class="reveal">
+  <div class="eyebrow">Impact</div>
+  <h2>Results you can <span class="grad">measure</span></h2>
+  <p class="lead">Outcomes from automation, optimization and AI-assisted operations.</p>
+  <svg width="0" height="0"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#f472b6"/></linearGradient></defs></svg>
+  <div class="gauges">
+    <div class="glass gauge" style="--off:203.6"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v grad">~40%</div><p>Lower AWS spend</p></div>
+    <div class="glass gauge" style="--off:203.6"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v grad">~40%</div><p>Better deployment efficiency</p></div>
+    <div class="glass gauge" style="--off:135.7"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v grad">~60%</div><p>Less manual intervention</p></div>
+    <div class="glass gauge" style="--off:169.7"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v grad">~50%</div><p>Fewer configuration errors</p></div>
+  </div>
+  <div class="glass bars" id="bars">
+    <div class="bar"><label><span>AWS spend before</span><span>index 100</span></label><div class="track"><i style="--w:100%;background:linear-gradient(90deg,#8b5cf6,#f472b6)"></i></div></div>
+    <div class="bar"><label><span>AWS spend after</span><span>index ~60</span></label><div class="track"><i style="--w:60%;background:linear-gradient(90deg,#22d3ee,#8b5cf6)"></i></div></div>
+    <div class="note">Relative index derived from the ~40% reduction, not absolute dollar figures.</div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <div class="eyebrow">Projects</div>
+  <h2>Selected <span class="grad">work</span></h2>
+  <p class="lead">Filter by theme. Click a card to open its build log.</p>
+  <div class="filters" id="filters">
+    <button class="on" data-f="all">All</button><button data-f="cloud">Cloud</button><button data-f="ai">AI</button><button data-f="auto">Automation</button><button data-f="sec">Security</button>
+  </div>
+  <div class="grid" id="pgrid">
+    <div class="glass tilt pcard" data-c="cloud" data-p="solar" tabindex="0" role="button"><div class="ico">🌐</div><h3>Solar marketplace infrastructure</h3><p>Multi-tier, multi-region AWS architecture running 60+ microservices and 1M+ daily requests at 99.9% uptime.</p><span class="tag">AWS</span><span class="tag">EKS</span><span class="tag">Terraform</span><span class="tag">CI/CD</span><div class="hint">▸ View build log</div></div>
+    <div class="glass tilt pcard" data-c="cloud" data-p="cost" tabindex="0" role="button"><div class="ico">💸</div><h3>AWS cost optimization</h3><p>About 40% reduction in AWS spend through usage analysis and resource optimization.</p><span class="tag">Cost Explorer</span><span class="tag">FinOps</span><div class="hint">▸ View build log</div></div>
+    <div class="glass tilt pcard" data-c="ai" data-p="ai" tabindex="0" role="button"><div class="ico">🤖</div><h3>AI-driven DevOps automation</h3><p>Agentic systems for natural-language querying, analysis and optimization of AWS infrastructure. About 60% less manual intervention.</p><span class="tag">CrewAI</span><span class="tag">MCP</span><span class="tag">Python</span><div class="hint">▸ View build log</div></div>
+    <div class="glass tilt pcard" data-c="ai auto" data-p="eph" tabindex="0" role="button"><div class="ico">⏱️</div><h3>Ephemeral environments</h3><p>AI-driven self-service platform that provisions temporary environments from Git branch names, with an 8-hour default TTL and automatic cleanup.</p><span class="tag">Kubernetes</span><span class="tag">Git</span><span class="tag">Automation</span><div class="hint">▸ View build log</div></div>
+    <div class="glass tilt pcard" data-c="auto" data-p="iac" tabindex="0" role="button"><div class="ico">🧩</div><h3>Infrastructure automation</h3><p>Terraform modules and Ansible automation with remote state and CI/CD integration. About 40% better delivery efficiency and 50% fewer configuration errors.</p><span class="tag">Terraform</span><span class="tag">Ansible</span><div class="hint">▸ View build log</div></div>
+    <div class="glass tilt pcard" data-c="sec cloud" data-p="sec" tabindex="0" role="button"><div class="ico">🔐</div><h3>Reliability &amp; security</h3><p>Multi-region design, vulnerability and dependency scanning, container security and SOC 2 Type II support.</p><span class="tag">SOC 2</span><span class="tag">GuardDuty</span><span class="tag">WAF</span><div class="hint">▸ View build log</div></div>
+  </div>
+
+  <h3 class="studio-h">▶ Project studio</h3>
+  <p class="lead" style="margin-bottom:18px">Pick a project to see how it behaves. Click any card above for its build log.</p>
+  <div class="filters tabs" id="tabs"></div>
+  <div class="demo">
+    <div class="glass pipe">
+      <h3 id="pt"></h3>
+      <div class="steps" id="steps"></div>
+      <div class="ttl"><i id="ttl"></i></div>
+    </div>
+    <div class="glass term">
+      <div class="bar2"><i></i><i></i><i></i><span class="tt" id="tt"></span></div>
+      <pre id="term"></pre>
+    </div>
+  </div>
+  <p class="note" style="margin-top:10px">Terminal sessions and build logs are illustrative reconstructions of how each project works, not real output or real resource names.</p>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="eyebrow">Skills</div>
+  <h2>My <span class="grad">toolbox</span></h2>
+  <p class="lead">Drag the sphere to spin it.</p>
+  <div class="skillwrap">
+    <canvas id="sphere"></canvas>
+    <div class="cats">
+      <div class="glass cat"><h4>☁️ Cloud (AWS)</h4><div class="chips"><span>EKS</span><span>EC2</span><span>RDS</span><span>S3</span><span>Lambda</span><span>IAM</span><span>STS</span><span>Identity Center</span><span>KMS</span><span>CloudWatch</span><span>Cost Explorer</span><span>VPC</span><span>Secrets Manager</span></div></div>
+      <div class="glass cat"><h4>⚙️ IaC &amp; Containers</h4><div class="chips"><span>Terraform</span><span>Ansible</span><span>Docker</span><span>Kubernetes</span><span>Microservices</span></div></div>
+      <div class="glass cat"><h4>🚀 CI/CD &amp; Observability</h4><div class="chips"><span>Jenkins</span><span>Bitbucket</span><span>CodeBuild</span><span>CodeDeploy</span><span>CodeArtifact</span><span>Datadog</span><span>EFK</span></div></div>
+      <div class="glass cat"><h4>🔐 Security</h4><div class="chips"><span>GuardDuty</span><span>Security Hub</span><span>Inspector</span><span>WAF</span><span>SOC 2 Type II</span><span>DevSecOps</span></div></div>
+      <div class="glass cat"><h4>🧠 AI, Code &amp; Practices</h4><div class="chips"><span>CrewAI</span><span>MCP</span><span>Agentic AI</span><span>Python</span><span>Bash</span><span>Git</span><span>Linux</span><span>SRE</span><span>SLOs/SLIs</span><span>Incident management</span><span>Disaster recovery</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="reveal">
+  <div class="eyebrow">Education</div>
+  <h2>Where I <span class="grad">learned</span></h2>
+  <div class="glass edu tilt" style="margin-bottom:60px"><div class="cap">🎓</div><div><h3>B.Tech</h3><p>Indian Institute of Information Technology, Design and Manufacturing, Jabalpur (IIIT Jabalpur) · Graduated 2018</p></div></div>
+  <div class="eyebrow">Open to</div>
+  <h2>What's <span class="grad">next</span></h2>
+  <div class="roles"><span>DevOps Lead</span><span>Site Reliability Engineer</span><span>Platform Engineer</span><span>Release Engineer</span><span>Cloud Infrastructure</span></div>
+  <a class="btn p" href="https://abhishek27iiitdmj.github.io/portfolio/" target="_blank" rel="noopener">Visit my portfolio ↗</a>
+</section>
+
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="mbox glass" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+    <button class="mclose" id="mclose" aria-label="Close">✕</button>
+    <div class="mhead"><span id="mico"></span><div><h3 id="mtitle"></h3><p id="msum"></p></div></div>
+    <div class="term mterm">
+      <div class="bar2"><i></i><i></i><i></i><span class="tt" id="mtt"></span><button id="replay">↻ Replay</button></div>
+      <pre id="mlog"></pre>
+    </div>
+    <div class="mcols">
+      <div><h4>Stack</h4><div class="chips" id="mstack"></div></div>
+      <div><h4>Outcome</h4><ul id="mout"></ul></div>
+    </div>
+  </div>
+</div>
+
+<footer>© <span id="yr"></span> Abhishek Kumar · DevOps &amp; Platform Engineering Lead</footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* particle network background */
+(()=>{
+  const c=$('#bg'),x=c.getContext('2d');let W,H,pts=[],m={x:-999,y:-999};
+  const resize=()=>{W=c.width=innerWidth;H=c.height=innerHeight;pts=Array.from({length:Math.min(110,Math.floor(W*H/14000))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.8+.6}))};
+  addEventListener('resize',resize);resize();
+  addEventListener('mousemove',e=>{m.x=e.clientX;m.y=e.clientY;const g=$('#glow');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+  (function f(){
+    x.clearRect(0,0,W,H);
+    for(const p of pts){
+      p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+      const dx=m.x-p.x,dy=m.y-p.y,d=Math.hypot(dx,dy);
+      if(d<160){p.x-=dx*.004;p.y-=dy*.004}
+      x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle='rgba(140,200,255,.8)';x.fill();
+    }
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const a=pts[i],b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<130){x.strokeStyle=`rgba(139,92,246,${(1-d/130)*.35})`;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}
+    }
+    for(const p of pts){const d=Math.hypot(m.x-p.x,m.y-p.y);if(d<150){x.strokeStyle=`rgba(34,211,238,${(1-d/150)*.6})`;x.beginPath();x.moveTo(m.x,m.y);x.lineTo(p.x,p.y);x.stroke()}}
+    if(!reduce)requestAnimationFrame(f);
+  })();
+})();
+
+/* typing roles */
+(()=>{
+  const roles=['DevOps & Platform Engineering Lead','AWS & Kubernetes Architect','Site Reliability Engineer','Agentic AI Builder (CrewAI, MCP)'];
+  const el=$('#role');let i=0,j=0,del=false;
+  if(reduce){el.textContent=roles[0];return}
+  (function t(){
+    const w=roles[i];j+=del?-1:1;el.textContent=w.slice(0,j);
+    let d=del?25:60;
+    if(!del&&j===w.length){del=true;d=1600}else if(del&&j===0){del=false;i=(i+1)%roles.length;d=300}
+    setTimeout(t,d);
+  })();
+})();
+
+/* marquee */
+(()=>{
+  const items=['AWS','KUBERNETES','TERRAFORM','ANSIBLE','DOCKER','JENKINS','DATADOG','PYTHON','CREWAI','MCP','SOC 2','SRE','EKS','CI/CD','OBSERVABILITY'];
+  $('#mq').innerHTML=[...items,...items].map(t=>`<span>${t}</span>`).join('');
+})();
+
+/* nav, dots, progress */
+const secs=['top','about','architecture','experience','impact','projects','skills','education'];
+$('#dots').innerHTML=secs.map(s=>`<a href="#${s}" title="${s}"></a>`).join('');
+const dots=$$('#dots a'),links=$$('nav a.l');
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  $('#progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  let cur=0;secs.forEach((s,i)=>{if($('#'+s).getBoundingClientRect().top<innerHeight*.4)cur=i});
+  dots.forEach((d,i)=>d.classList.toggle('active',i===cur));
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+secs[cur]));
+  const tl=$('#tl').getBoundingClientRect();
+  $('#tlfill').style.height=Math.max(0,Math.min(tl.height,innerHeight*.6-tl.top))+'px';
+},{passive:true});
+dispatchEvent(new Event('scroll'));
+
+/* reveal + counters + bars */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');$$('#'+e.target.id+' .gauge').forEach(g=>g.classList.add('show'));io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach(el=>io.observe(el));
+$$('#impact').forEach(()=>{});
+const bio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');bio.unobserve(e.target)}}),{threshold:.4});
+bio.observe($('#bars'));
+$$('[data-n]').forEach(el=>{
+  const n=+el.dataset.n,s=el.dataset.s||'';let i=0;el.textContent='0'+s;
+  const t=setInterval(()=>{i+=Math.max(1,Math.ceil(n/40));if(i>=n){i=n;clearInterval(t)}el.textContent=i+s},35);
+});
+
+/* 3D tilt + spotlight */
+$$('.tilt').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+    c.style.setProperty('--ry',((px-.5)*10)+'deg');c.style.setProperty('--rx',((.5-py)*10)+'deg');
+    c.style.setProperty('--mx',px*100+'%');c.style.setProperty('--my',py*100+'%');
+  });
+  c.addEventListener('mouseleave',()=>{c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')});
+});
+
+/* project filters */
+$$('#filters button').forEach(b=>b.addEventListener('click',()=>{
+  $$('#filters button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  $$('.pcard').forEach(c=>c.classList.toggle('hide',b.dataset.f!=='all'&&!c.dataset.c.split(' ').includes(b.dataset.f)));
+}));
+
+/* project data: illustrative reconstructions built only from stated facts */
+const PROJ={
+solar:{ico:'🌐',t:'Solar marketplace infrastructure',sum:'Multi-tier, multi-region AWS platform for a solar marketplace.',
+ stack:['AWS','EKS','Terraform','CI/CD','Datadog'],
+ out:['60+ microservices with clear boundaries','1M+ daily requests supported','99.9% uptime SLA across regions'],
+ steps:['Define service boundaries','Provision network and EKS with IaC','Ship services through CI/CD','Route traffic across regions','Monitor SLOs and alert'],
+ live:[['c','$ kubectl get deploy -A | wc -l'],['o','60+ services running'],['c','$ dd slo status --target 99.9'],['o','Availability within target across regions'],['c','$ aws elbv2 describe-target-health'],['o','All targets healthy in both regions']],
+ build:[['d','# 1. split the platform into services'],['c','$ mkdir -p services && ls services | wc -l'],['o','60+ service boundaries defined'],['d','# 2. network and cluster as code'],['c','$ terraform plan -out=tfplan'],['o','VPC, subnets, EKS: planned'],['c','$ terraform apply tfplan'],['o','Infrastructure created'],['d','# 3. deliver through pipelines'],['c','$ git push origin release'],['o','Build, test, scan, deploy to EKS'],['d','# 4. observe'],['c','$ open dashboards: Datadog, CloudWatch'],['o','SLOs and alerts in place']]},
+cost:{ico:'💸',t:'AWS cost optimization',sum:'Usage analysis and right-sizing that cut AWS spend by about 40%.',
+ stack:['Cost Explorer','CloudWatch','AWS','Terraform'],
+ out:['About 40% lower AWS spend'],
+ steps:['Break down spend by service','Find idle and oversized resources','Right-size or schedule','Apply changes through IaC','Track savings monthly'],
+ live:[['c','$ aws ce get-cost-and-usage --group-by SERVICE'],['o','Top cost drivers listed'],['c','$ analyze --idle --oversized'],['o','Candidates for right-sizing found'],['c','$ terraform apply'],['o','Resources resized, spend trending down']],
+ build:[['d','# 1. see where money goes'],['c','$ aws ce get-cost-and-usage --granularity MONTHLY'],['o','Spend grouped by service and tag'],['d','# 2. find waste'],['c','$ check utilization via CloudWatch'],['o','Idle and oversized resources identified'],['d','# 3. fix through code'],['c','$ terraform apply'],['o','Right-sized, reviewed in pull requests'],['d','# 4. keep it down'],['c','$ review monthly'],['o','About 40% reduction in AWS spend']]},
+ai:{ico:'🤖',t:'AI-driven DevOps automation',sum:'Agentic systems that let you query and optimize AWS in plain language.',
+ stack:['CrewAI','MCP','Python','AWS'],
+ out:['About 60% less manual intervention','Natural-language querying of AWS infrastructure'],
+ steps:['Ask in plain language','Agent picks a tool through MCP','Tool queries AWS','Agent analyzes the result','Suggest or run an action'],
+ live:[['c','> Which EC2 instances look idle this week?'],['o','Querying CloudWatch metrics through MCP...'],['o','Low-utilization instances found.'],['c','> Estimate the savings if I do that'],['o','Querying Cost Explorer...'],['o','Savings estimated. Create a change plan? (y/n)']],
+ build:[['d','# 1. expose AWS as tools'],['c','$ python mcp_server.py'],['o','AWS read tools registered over MCP'],['d','# 2. define agents'],['c','$ python crew.py'],['o','Agents: analyst, optimizer'],['d','# 3. connect them'],['o','CrewAI agents call MCP tools'],['d','# 4. try it'],['c','$ ask "what is costing the most?"'],['o','Answer with supporting data'],['o','Manual intervention reduced by about 60%']]},
+eph:{ico:'⏱️',t:'Ephemeral environments',sum:'Self-service temporary environments created from Git branch names.',
+ stack:['Kubernetes','Git','Automation','AI'],
+ out:['Environment per branch','8-hour default TTL with automatic cleanup'],
+ steps:['Developer pushes a branch','Branch name detected','Environment provisioned','Environment live, 8h TTL starts','TTL expires, automatic cleanup'],
+ live:[['c','$ git push origin feature/login'],['o','Branch detected: feature/login'],['o','Provisioning environment...'],['o','Live. TTL: 8h'],['d','... 8 hours later'],['o','TTL reached. Environment cleaned up.']],
+ build:[['d','# 1. trigger on branch push'],['c','$ git push origin feature/login'],['o','Webhook received'],['d','# 2. name environment from branch'],['o','env = slug(branch)'],['d','# 3. provision'],['c','$ provision --env feature-login'],['o','Environment created'],['d','# 4. expire it'],['o','TTL = 8h by default'],['o','Cleanup job removes expired environments']]},
+iac:{ico:'🧩',t:'Infrastructure automation',sum:'Terraform and Ansible for repeatable provisioning and configuration.',
+ stack:['Terraform','Ansible','CI/CD','Remote state'],
+ out:['About 40% better delivery efficiency','About 50% fewer configuration errors'],
+ steps:['Write modules','Plan in a pull request','Review and approve','Apply from CI/CD','Configure with Ansible'],
+ live:[['c','$ terraform plan'],['o','Plan: changes shown for review'],['c','$ terraform apply'],['o','Apply complete'],['c','$ ansible-playbook site.yml'],['o','Hosts configured consistently']],
+ build:[['d','# 1. reusable modules'],['c','$ terraform init'],['o','Remote backend and providers ready'],['d','# 2. changes reviewed first'],['c','$ terraform plan'],['o','Plan attached to the pull request'],['d','# 3. apply from the pipeline'],['o','CI/CD runs terraform apply'],['d','# 4. configure'],['c','$ ansible-playbook site.yml'],['o','Same config every time: fewer errors']]},
+sec:{ico:'🔐',t:'Reliability & security',sum:'Multi-region design plus scanning and controls that support SOC 2 Type II.',
+ stack:['SOC 2','GuardDuty','Security Hub','WAF','Inspector'],
+ out:['99.9% uptime SLA','Vulnerability, dependency and container scanning','SOC 2 Type II support'],
+ steps:['Scan code and dependencies','Scan container images','Enforce least-privilege IAM','Detect threats','Review incidents and runbooks'],
+ live:[['c','$ scan --deps --images'],['o','Findings triaged by severity'],['c','$ aws guardduty list-findings'],['o','Findings routed to alerts'],['c','$ review runbook'],['o','Post-mortem actions tracked']],
+ build:[['d','# 1. shift security left'],['o','Dependency and image scans in the pipeline'],['d','# 2. least privilege'],['o','IAM roles scoped per service'],['d','# 3. detection'],['o','GuardDuty, Security Hub, Inspector, WAF enabled'],['d','# 4. reliability practice'],['o','SLOs, runbooks, post-mortems'],['o','Supports SOC 2 Type II and a 99.9% SLA']]}
+};
+const order=['solar','cost','ai','eph','iac','sec'];
+const line=(c,t)=>`<span class="${c}">${t.replace(/</g,'&lt;')}</span>`;
+
+/* typed terminal helper; returns a cancel function */
+function typeInto(el,lines,{loop=false,speed=1}={}){
+  let stop=false,timer;
+  if(reduce){el.innerHTML=lines.map(l=>line(...l)).join('\n');return()=>{}}
+  el.innerHTML='';
+  const run=()=>{
+    let li=0,ci=0,html='';
+    (function step(){
+      if(stop)return;
+      if(li>=lines.length){if(loop)timer=setTimeout(()=>{if(!stop){el.innerHTML='';run()}},4000);return}
+      const [c,t]=lines[li];ci++;
+      el.innerHTML=html+line(c,t.slice(0,ci));el.scrollTop=el.scrollHeight;
+      if(ci>=t.length){html+=line(c,t)+'\n';li++;ci=0;timer=setTimeout(step,(c==='c'?450:300)*speed)}
+      else timer=setTimeout(step,(c==='c'?30:10)*speed);
+    })();
+  };
+  run();
+  return()=>{stop=true;clearTimeout(timer)};
+}
+
+/* project studio (selectable demo) */
+const studio=(()=>{
+  let cur=null,stopT=null,stepT=null;
+  const tabs=$('#tabs');
+  tabs.innerHTML=order.map(k=>`<button data-k="${k}">${PROJ[k].ico} ${PROJ[k].t}</button>`).join('');
+  function select(k,{scroll=false}={}){
+    cur=k;const p=PROJ[k];
+    $$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+    $$('.pcard').forEach(c=>c.classList.toggle('sel',c.dataset.p===k));
+    $('#pt').textContent=p.ico+' '+p.t+' lifecycle';
+    $('#tt').textContent='live · '+k;
+    $('#steps').innerHTML=p.steps.map((s,i)=>`<div class="step"><b>${i+1}</b>${s}</div>`).join('');
+    const st=$$('#steps .step'),ttl=$('#ttl');let i=0;
+    clearInterval(stepT);if(stopT)stopT();
+    const tick=()=>{
+      st.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('done',j<i)});
+      ttl.style.transition='width 2.2s linear';ttl.style.width=((i+1)/st.length*100)+'%';
+      if(i===st.length-1)setTimeout(()=>{ttl.style.transition='width .4s';ttl.style.width='0'},1800);
+      i=(i+1)%st.length;
+    };
+    ttl.style.transition='none';ttl.style.width='0';tick();
+    if(!reduce)stepT=setInterval(tick,2400);
+    stopT=typeInto($('#term'),p.live,{loop:true});
+    if(scroll)$('.demo').scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  tabs.addEventListener('click',e=>{const b=e.target.closest('button');if(b)select(b.dataset.k)});
+  select('eph');
+  return{select,get cur(){return cur}};
+})();
+
+/* build-log modal */
+(()=>{
+  const m=$('#modal');let stop=null,last=null,k=null;
+  function open(key,from){
+    k=key;last=from;const p=PROJ[key];
+    $('#mico').textContent=p.ico;$('#mtitle').textContent=p.t;$('#msum').textContent=p.sum;
+    $('#mtt').textContent='build-log · '+key+' (illustrative)';
+    $('#mstack').innerHTML=p.stack.map(x=>`<span>${x}</span>`).join('');
+    $('#mout').innerHTML=p.out.map(x=>`<li>${x}</li>`).join('');
+    m.classList.add('open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+    if(stop)stop();stop=typeInto($('#mlog'),p.build,{speed:.8});
+    studio.select(key);
+    $('#mclose').focus();
+  }
+  function close(){
+    m.classList.remove('open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';
+    if(stop)stop();if(last)last.focus();
+  }
+  $$('.pcard').forEach(c=>{
+    c.addEventListener('click',()=>open(c.dataset.p,c));
+    c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(c.dataset.p,c)}});
+  });
+  $('#mclose').addEventListener('click',close);
+  m.addEventListener('click',e=>{if(e.target===m)close()});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open'))close()});
+  $('#replay').addEventListener('click',()=>{if(stop)stop();stop=typeInto($('#mlog'),PROJ[k].build,{speed:.8})});
+})();
+
+/* 3D skill sphere */
+(()=>{
+  const c=$('#sphere'),x=c.getContext('2d');
+  const words=['AWS','EKS','Kubernetes','Terraform','Ansible','Docker','Jenkins','Datadog','Python','Bash','Linux','Git','CrewAI','MCP','SRE','IAM','KMS','VPC','RDS','S3','Lambda','CloudWatch','WAF','GuardDuty','SOC 2','CI/CD','Bitbucket','CodeBuild','EFK','DevSecOps','Agentic AI','FinOps'];
+  const N=words.length,pts=words.map((w,i)=>{const y=1-2*(i+.5)/N,r=Math.sqrt(1-y*y),t=Math.PI*(3-Math.sqrt(5))*i;return{w,x:Math.cos(t)*r,y,z:Math.sin(t)*r}});
+  let S,ax=.003,ay=.004,drag=false,lx=0,ly=0;
+  const fit=()=>{const d=devicePixelRatio||1,w=c.clientWidth;c.width=c.height=w*d;S=w*d;};
+  addEventListener('resize',fit);fit();
+  c.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;ly=e.clientY;c.setPointerCapture(e.pointerId);c.style.cursor='grabbing'});
+  c.addEventListener('pointerup',()=>{drag=false;c.style.cursor='grab'});
+  c.addEventListener('pointermove',e=>{if(!drag)return;ay=(e.clientX-lx)*.0008;ax=(e.clientY-ly)*.0008;lx=e.clientX;ly=e.clientY});
+  (function f(){
+    x.clearRect(0,0,S,S);
+    const sa=Math.sin(ax),ca=Math.cos(ax),sb=Math.sin(ay),cb=Math.cos(ay);
+    for(const p of pts){
+      let y=p.y*ca-p.z*sa,z=p.y*sa+p.z*ca;p.y=y;p.z=z;
+      let X=p.x*cb+p.z*sb;z=-p.x*sb+p.z*cb;p.x=X;p.z=z;
+    }
+    if(!drag){ax*=.98;ay=ay*.98+.004*.02;if(Math.abs(ax)<.0008)ax=.0008}
+    [...pts].sort((a,b)=>a.z-b.z).forEach(p=>{
+      const sc=(p.z+2)/3,px=S/2+p.x*S*.4,py=S/2+p.y*S*.4;
+      x.globalAlpha=.25+.75*sc;x.fillStyle=p.z>0?'#22d3ee':'#a78bfa';
+      x.font=`${(.9+sc*1.1)*S/38}px system-ui,sans-serif`;x.textAlign='center';x.textBaseline='middle';
+      x.fillText(p.w,px,py);
+    });
+    x.globalAlpha=1;requestAnimationFrame(f);
+  })();
+})();
+</script>
+</body>
+</html>
