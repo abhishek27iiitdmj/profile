@@ -110,20 +110,36 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;margin:8px 0 14px}
 
 /* impact */
 .gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
-.gauge{text-align:center;padding:26px}
-.gauge svg{width:140px;height:140px;transform:rotate(-90deg)}
+.gauge{text-align:center;padding:26px;position:relative}
+.gauge .gico{position:absolute;top:14px;left:14px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:1rem;background:rgba(255,255,255,.06);border:1px solid var(--line)}
+.gauge .gring{position:relative;width:150px;height:150px;margin:6px auto 0}
+.gauge svg{width:150px;height:150px;transform:rotate(-90deg);overflow:visible}
 .gauge circle{fill:none;stroke-width:10;stroke-linecap:round}
 .gauge .bgc{stroke:rgba(255,255,255,.08)}
-.gauge .fg{stroke:url(#gg);stroke-dasharray:339.3;stroke-dashoffset:339.3;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1)}
+.gauge .tick{stroke-width:2;stroke:rgba(255,255,255,.28);stroke-dasharray:1 6.1;stroke-linecap:butt;transform-box:fill-box;transform-origin:center;animation:spin 40s linear infinite}
+.gauge .fg{stroke:url(#gg);stroke-dasharray:339.3;stroke-dashoffset:339.3;transition:stroke-dashoffset 1.8s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 0 7px rgba(34,211,238,.7))}
 .show .gauge .fg,.gauge.show .fg{stroke-dashoffset:var(--off)}
-.gauge .v{position:relative;margin-top:-92px;height:92px;font-size:1.8rem;font-weight:800;display:grid;place-items:center}
-.gauge p{margin-top:14px;color:var(--muted);font-size:.9rem}
-.bars{margin-top:22px;padding:28px;display:grid;gap:18px}
-.bar label{display:flex;justify-content:space-between;font-size:.9rem;color:var(--muted);margin-bottom:6px}
-.track{height:18px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
-.track i{display:block;height:100%;width:0;border-radius:99px;transition:width 1.8s cubic-bezier(.2,.8,.2,1)}
-.bars.show .track i{width:var(--w)}
-.note{font-size:.75rem;color:var(--muted);opacity:.7}
+.gauge .v{position:absolute;inset:0;display:grid;place-items:center;font-size:2.1rem;font-weight:800;font-variant-numeric:tabular-nums}
+.gauge p{margin-top:16px;color:var(--text);font-size:.98rem;font-weight:700}
+.gauge small{display:block;margin-top:4px;color:var(--muted);font-size:.78rem}
+.chart{margin-top:22px;padding:28px}
+.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.chead h3{font-size:1.4rem;margin-top:4px}
+.pill{font-weight:800;font-size:1.1rem;padding:8px 18px;border-radius:999px;border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.08)}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart .grid path{stroke:rgba(255,255,255,.09);stroke-dasharray:4 6;fill:none}
+.chart .ax text{fill:#97a3d6;font-size:12px}
+.chart .ln{fill:none;stroke:url(#ln);stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;filter:drop-shadow(0 0 8px rgba(139,92,246,.8))}
+.chart .area{fill:url(#ar);opacity:0;transition:opacity 1.4s 1.2s}
+.chart .drop{opacity:0;transition:opacity .8s 2.2s}
+.chart .drop path{stroke:#22d3ee;stroke-width:1.5;stroke-dasharray:5 5;fill:none}
+.chart .drop text{fill:#22d3ee;font-size:14px;font-weight:800}
+.chart .cdot{fill:#fff;opacity:0;filter:drop-shadow(0 0 10px #22d3ee) drop-shadow(0 0 18px #8b5cf6)}
+.chart.show .ln{stroke-dashoffset:0;transition:stroke-dashoffset 2.4s linear}
+.chart.show .area{opacity:1}
+.chart.show .drop{opacity:1}
+.chart.show .cdot{opacity:1}
+.note{font-size:.75rem;color:var(--muted);opacity:.7;margin-top:12px}
 
 /* projects */
 .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
@@ -178,6 +194,15 @@ h2{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;margin:8px 0 14px}
 .mcols h4{font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--a);margin-bottom:8px}
 .mcols ul{padding-left:18px;color:var(--muted);font-size:.92rem}
 @media(max-width:700px){.mcols{grid-template-columns:1fr}}
+
+/* rotating about quotes */
+.qwrap{position:relative;min-height:210px;max-width:920px}
+.qwrap .lead{margin-bottom:44px;transition:opacity .5s,transform .5s,filter .5s}
+.qwrap .lead.out{opacity:0;transform:translateY(12px);filter:blur(8px)}
+.sc{font-style:normal;color:var(--a);-webkit-text-fill-color:var(--a);text-shadow:0 0 16px var(--a)}
+.qwrap::after{content:"";position:absolute;top:0;bottom:60px;left:0;width:3px;border-radius:3px;background:var(--g);box-shadow:0 0 18px var(--a),0 0 46px var(--b);opacity:0;pointer-events:none}
+.qwrap.scan::after{animation:qscan 1.3s cubic-bezier(.65,0,.25,1)}
+@keyframes qscan{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
 
 /* skills */
 .skillwrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center}
@@ -248,8 +273,10 @@ footer{text-align:center;padding:50px;color:var(--muted);border-top:1px solid va
 
 <section id="about" class="reveal">
   <div class="eyebrow">About</div>
-  <h2>I turn <span class="grad">infrastructure</span> into a product advantage</h2>
-  <p class="lead">Move your mouse over the cards. I lead platform work end to end, from architecture to on-call.</p>
+  <div class="qwrap" id="qwrap" aria-live="polite">
+    <h2 id="qh">I turn <span class="grad">infrastructure</span> into a product advantage</h2>
+    <p class="lead" id="qp">Move your mouse over the cards. I lead platform work end to end, from architecture to on-call.</p>
+  </div>
   <div class="grid">
     <div class="glass tilt"><h3>☁️ Cloud architecture</h3><p>End-to-end, multi-tier AWS designs with clear microservice boundaries across 60+ services.</p></div>
     <div class="glass tilt"><h3>🛡️ Reliability &amp; security</h3><p>SLOs and SLIs, incident management, runbooks, post-mortems and SOC 2 Type II support.</p></div>
@@ -342,15 +369,30 @@ footer{text-align:center;padding:50px;color:var(--muted);border-top:1px solid va
   <p class="lead">Outcomes from automation, optimization and AI-assisted operations.</p>
   <svg width="0" height="0"><defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#f472b6"/></linearGradient></defs></svg>
   <div class="gauges">
-    <div class="glass gauge" style="--off:203.6"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v grad">~40%</div><p>Lower AWS spend</p></div>
-    <div class="glass gauge" style="--off:203.6"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v grad">~40%</div><p>Better deployment efficiency</p></div>
-    <div class="glass gauge" style="--off:135.7"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v grad">~60%</div><p>Less manual intervention</p></div>
-    <div class="glass gauge" style="--off:169.7"><svg viewBox="0 0 120 120"><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v grad">~50%</div><p>Fewer configuration errors</p></div>
+    <div class="glass gauge tilt" style="--off:203.6" data-pct="40"><div class="gico">💸</div><div class="gring"><svg viewBox="0 0 120 120"><circle class="tick" cx="60" cy="60" r="58.5"/><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v"><span class="grad">~<span data-count>0</span>%</span></div></div><p>Lower AWS spend</p><small>Usage analysis and right-sizing</small></div>
+    <div class="glass gauge tilt" style="--off:203.6" data-pct="40"><div class="gico">🚀</div><div class="gring"><svg viewBox="0 0 120 120"><circle class="tick" cx="60" cy="60" r="58.5"/><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v"><span class="grad">~<span data-count>0</span>%</span></div></div><p>Better deployment efficiency</p><small>IaC and CI/CD pipelines</small></div>
+    <div class="glass gauge tilt" style="--off:135.7" data-pct="60"><div class="gico">🤖</div><div class="gring"><svg viewBox="0 0 120 120"><circle class="tick" cx="60" cy="60" r="58.5"/><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v"><span class="grad">~<span data-count>0</span>%</span></div></div><p>Less manual intervention</p><small>AI agents and automation</small></div>
+    <div class="glass gauge tilt" style="--off:169.7" data-pct="50"><div class="gico">🧩</div><div class="gring"><svg viewBox="0 0 120 120"><circle class="tick" cx="60" cy="60" r="58.5"/><circle class="bgc" cx="60" cy="60" r="54"/><circle class="fg" cx="60" cy="60" r="54"/></svg><div class="v"><span class="grad">~<span data-count>0</span>%</span></div></div><p>Fewer configuration errors</p><small>Terraform modules and remote state</small></div>
   </div>
-  <div class="glass bars" id="bars">
-    <div class="bar"><label><span>AWS spend before</span><span>index 100</span></label><div class="track"><i style="--w:100%;background:linear-gradient(90deg,#8b5cf6,#f472b6)"></i></div></div>
-    <div class="bar"><label><span>AWS spend after</span><span>index ~60</span></label><div class="track"><i style="--w:60%;background:linear-gradient(90deg,#22d3ee,#8b5cf6)"></i></div></div>
-    <div class="note">Relative index derived from the ~40% reduction, not absolute dollar figures.</div>
+  <div class="glass chart" id="bars">
+    <div class="chead">
+      <div><div class="eyebrow">AWS spend index</div><h3>From 100 down to ~60</h3></div>
+      <div class="pill"><span class="grad">≈ 40% lower</span></div>
+    </div>
+    <svg viewBox="0 0 800 270" role="img" aria-label="AWS spend index falling from 100 to about 60">
+      <defs>
+        <linearGradient id="ln" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f472b6"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+        <linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b5cf6" stop-opacity=".45"/><stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/></linearGradient>
+      </defs>
+      <g class="grid"><path d="M60 30H780M60 96.7H780M60 163.3H780M60 230H780"/></g>
+      <g class="ax"><text x="48" y="34" text-anchor="end">100</text><text x="48" y="101" text-anchor="end">80</text><text x="48" y="167" text-anchor="end">60</text><text x="48" y="234" text-anchor="end">40</text>
+        <text x="60" y="256">Before</text><text x="780" y="256" text-anchor="end">After</text></g>
+      <path class="area" d="M60 30C200 30 240 45 330 80S480 150 560 158S700 163.3 780 163.3L780 230L60 230Z"/>
+      <path class="ln" pathLength="1" d="M60 30C200 30 240 45 330 80S480 150 560 158S700 163.3 780 163.3"/>
+      <g class="drop"><path d="M780 30V163" /><text x="768" y="104" text-anchor="end">≈ −40%</text></g>
+      <circle class="cdot" r="7" cx="0" cy="0"><animateMotion dur="2.4s" begin="indefinite" fill="freeze" path="M60 30C200 30 240 45 330 80S480 150 560 158S700 163.3 780 163.3"/></circle>
+    </svg>
+    <div class="note">Relative index. Only the start (100) and end (~60) come from the ~40% reduction; the curve in between is illustrative, not absolute dollar figures.</div>
   </div>
 </section>
 
@@ -494,10 +536,24 @@ addEventListener('scroll',()=>{
 dispatchEvent(new Event('scroll'));
 
 /* reveal + counters + bars */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');$$('#'+e.target.id+' .gauge').forEach(g=>g.classList.add('show'));io.unobserve(e.target)}}),{threshold:.12});
+function countUp(g){
+  const el=g.querySelector('[data-count]'),n=+g.dataset.pct;
+  if(reduce){el.textContent=n;return}
+  const t0=performance.now();
+  (function f(now){
+    const p=Math.min(1,(now-t0)/1800);
+    el.textContent=Math.round(n*(1-Math.pow(1-p,3)));
+    if(p<1)requestAnimationFrame(f);
+  })(t0);
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');$$('#'+e.target.id+' .gauge').forEach(g=>{g.classList.add('show');countUp(g)});io.unobserve(e.target)}}),{threshold:.12});
 $$('.reveal').forEach(el=>io.observe(el));
 $$('#impact').forEach(()=>{});
-const bio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');bio.unobserve(e.target)}}),{threshold:.4});
+const bio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
+  e.target.classList.add('show');
+  const a=e.target.querySelector('animateMotion'),d=e.target.querySelector('.cdot');
+  if(a&&reduce){d.setAttribute('cx',780);d.setAttribute('cy',163.3)}else if(a)a.beginElement();
+  bio.unobserve(e.target)}}),{threshold:.4});
 bio.observe($('#bars'));
 $$('[data-n]').forEach(el=>{
   const n=+el.dataset.n,s=el.dataset.s||'';let i=0;el.textContent='0'+s;
@@ -640,6 +696,46 @@ const studio=(()=>{
   $('#replay').addEventListener('click',()=>{if(stop)stop();stop=typeInto($('#mlog'),PROJ[k].build,{speed:.8})});
 })();
 
+/* rotating about quotes: decrypt-style transition */
+(()=>{
+  const Q=[
+    [[['I turn ',0],['infrastructure',1],[' into a product advantage',0]],'Move your mouse over the cards. I lead platform work end to end, from architecture to on-call.'],
+    [[['Reliability is a ',0],['feature',1],[', not an afterthought',0]],'A 99.9% uptime SLA across regions is designed in from day one, not patched on later.'],
+    [[['Automate',1],[' the toil, keep the judgment',0]],'Terraform, Ansible and AI agents handle the repeatable work so engineers can focus on decisions.'],
+    [[['Cheaper, faster, ',0],['safer',1],[': aim for all three',0]],'About 40% lower AWS spend, better deployment efficiency and security built into the pipeline.'],
+    [[['Every environment should be ',0],['disposable',1]],'Spin one up from a branch name, use it, and let it clean itself up.']
+  ];
+  const w=$('#qwrap'),h=$('#qh'),p=$('#qp');let i=0;
+  if(reduce)return;
+  const G='ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#$%/{}[]+=*';
+  const len=s=>s.reduce((n,x)=>n+x[0].length,0);
+  const frame=(segs,rev)=>{
+    let k=0;
+    return segs.map(([t,g])=>{
+      let s='';
+      for(const ch of t){s+=(k<rev||ch===' ')?ch:`<i class="sc">${G[Math.random()*G.length|0]}</i>`;k++}
+      return g?`<span class="grad">${s}</span>`:s;
+    }).join('');
+  };
+  function swap(){
+    const from=Q[i];i=(i+1)%Q.length;const to=Q[i],nf=len(from[0]),nt=len(to[0]);
+    w.classList.remove('scan');void w.offsetWidth;w.classList.add('scan');
+    p.classList.add('out');
+    const t0=performance.now();let last=0,swapped=false;
+    (function f(now){
+      const e=now-t0;
+      if(e<450){if(now-last>45){h.innerHTML=frame(from[0],nf*(1-e/450));last=now}}
+      else if(e<1500){
+        if(!swapped){swapped=true;p.textContent=to[1]}
+        if(now-last>45){h.innerHTML=frame(to[0],nt*((e-450)/1050));last=now}
+        if(e>900)p.classList.remove('out');
+      }else{h.innerHTML=frame(to[0],nt);p.classList.remove('out');return}
+      requestAnimationFrame(f);
+    })(t0);
+  }
+  setInterval(swap,8000);
+})();
+
 /* 3D skill sphere */
 (()=>{
   const c=$('#sphere'),x=c.getContext('2d');
@@ -669,7 +765,7 @@ const studio=(()=>{
   })();
 })();
 </script>
- <script data-goatcounter="https://abhishek276k.goatcounter.com/count"
+<script data-goatcounter="https://abhishek276k.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
